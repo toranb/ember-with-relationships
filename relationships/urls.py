@@ -1,6 +1,6 @@
-from django.conf.urls import include, url, patterns
+from django.conf.urls import url, include
 from api import urls as api_urls
 
-urlpatterns = patterns('',
+urlpatterns = [
     url(r'^api/', include(api_urls, namespace='api')),
-)
+]
