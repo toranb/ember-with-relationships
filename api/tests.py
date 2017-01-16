@@ -80,7 +80,7 @@ class SessionTests(TestCase):
         self.assertEqual(session["id"], new_session_pk)
         self.assertEqual(session["name"], "hello")
         self.assertEqual(len(session["speakers"]), 2)
-        expected_speaker_json = [{"id": first_new_speaker_pk, "name": "1"},{"id": last_new_speaker_pk, "name": "2"}]
+        expected_speaker_json = [{"id": first_new_speaker_pk, "name": "1", "specialties": []},{"id": last_new_speaker_pk, "name": "2", "specialties": []}]
         self.assertItemsEqual(session["speakers"], expected_speaker_json)
 
     def test_http_put_will_update_first_session_name_and_return_200(self):
@@ -103,5 +103,5 @@ class SessionTests(TestCase):
         session = json.loads(response.content)
         self.assertEqual(session["name"], "another one")
         self.assertEqual(len(session["speakers"]), 2)
-        expected_speaker_json = [{"id": first_new_speaker_pk, "name": "1"},{"id": last_new_speaker_pk, "name": "2"}]
+        expected_speaker_json = [{"id": first_new_speaker_pk, "name": "1", "specialties": []},{"id": last_new_speaker_pk, "name": "2", "specialties": []}]
         self.assertItemsEqual(session["speakers"], expected_speaker_json)

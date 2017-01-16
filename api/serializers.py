@@ -6,7 +6,7 @@ class SpeakerSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Speaker
-        fields = ('id', 'name', )
+        fields = ('id', 'name', 'specialties')
 
 class SessionSerializer(serializers.ModelSerializer):
     id = serializers.UUIDField(read_only=False)
